@@ -23,7 +23,7 @@ public class Server extends Thread{
                 int randomIndex = (int) (Math.random() * quotes.length);
                 out.println(quotes[randomIndex]);
             } else if (input.equalsIgnoreCase("No")) {
-                
+
                 break;
             }
         }
