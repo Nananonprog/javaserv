@@ -70,6 +70,9 @@ public class BankingApp {
                                     case 3:
                                         accountManager.transferMoney(account_number);
                                         break;
+                                    case 4:
+                                        accountManager.getBalance(account_number)
+                                        break;
                                     case 5:
                                         break;
                                     default:

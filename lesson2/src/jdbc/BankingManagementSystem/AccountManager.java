@@ -106,7 +106,7 @@ public class AccountManager {
         connection.setAutoCommit(true);
     }
 
-    public void transferMoney(long sender_account_number){
+    public void transferMoney(long sender_account_number) throws SQLException {
         input.nextLine();
         System.out.print("Введите номер счёта получателя: ");
         long reciever_account_number = input.nextLong();
@@ -133,14 +133,60 @@ public class AccountManager {
                         PreparedStatement creditPreparedStatement = connection.prepareStatement(credit_query);
                         PreparedStatement debitPreparedStatement = connection.prepareStatement(debit_query);
 
+                        creditPreparedStatement.setDouble(1, amount);
+                        creditPreparedStatement.setLong(2, reciever_account_number);
+                        debitPreparedStatement.setDouble(1, amount);
+                        debitPreparedStatement.setLong(2, sender_account_number);
 
+                        int row1 = debitPreparedStatement.executeUpdate();
+                        int row2 = creditPreparedStatement.executeUpdate();
+                        if(row1 > 0 && row2 > 0){
+                            System.out.println("Транзакция прошла успешно!");
+                            connection.commit();
+                            connection.setAutoCommit(true);
+                            return;
+                        }else{
+                            System.out.println("Транзакция не удалась!");
+                            connection.rollback();
+                            connection.setAutoCommit(true);
+                        }
 
-
+                    }else{
+                        System.out.println("Недостаточный баланс");
                     }
+                }else{
+                    System.out.println("Неверный PIN-код");
                 }
+            }else {
+            System.out.println("Неверный номер счета получателя");}
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        connection.setAutoCommit(true);
+    }
+
+    public void getBalance(long account_number){
+        input.nextLine();
+        System.out.println("Введите PIN-код: ");
+        String security_pin = input.nextLine();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT balance FROM account WHERE account_number = ? AND security_pin = ?");
+            preparedStatement.setLong(1, account_number);
+            preparedStatement.setString(2, security_pin);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                double balance = resultSet.getDouble("balance");
+                System.out.println("Баланс: " + balance);
+            }else{
+                System.out.println("Неверный PIN-код");
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
+
     }
+
+
 }
+
