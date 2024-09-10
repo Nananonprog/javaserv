@@ -68,3 +68,31 @@ a {
     justify-content: center
 
 }
+
+.list{
+    width: 1200px;
+    margin: 50px auto;
+    border: 1px solid silver;
+    border-radius: 6px;
+}
+
+.list table{
+    width: 100%;
+    border: 1px solid silver;
+    border-collapse: collapse;
+}
+
+.list td, .list th{
+    border: 1px solid silver;
+}
+
+.list th{
+    padding: 10px;
+    background: rgba(116, 215, 224, 0.8);
+}
+
+
+
+a:hover{
+    color: silver;
+}

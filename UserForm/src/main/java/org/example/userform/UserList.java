@@ -34,15 +34,21 @@ public class UserList extends HttpServlet {
             out.println("<th>Gamer ID</th>");
             out.println("<th>Login</th>");
             out.println("<th>Email</th>");
-            out.println("<th>Password</th></tr>");
+            out.println("<th>Password</th>");
+            out.println("<th>Edit the user profile</th>");
+            out.println("<th>Delete the user profile</th>");
+            out.println("</tr>");
 
             while (rs.next()) {
                 out.println("<tr>");
                 out.println("<td>" + rs.getInt(1) + "</td>");
                 out.println("<td>" + rs.getString(2) + "</td>");
                 out.println("<td>" + rs.getString(3) + "</td>");
-                out.println("<td>" + rs.getString(4) + "</td></tr>");
-            }
+                out.println("<td>" + rs.getString(4) + "</td>");
+                out.println("<td><a href='editScreen?id=" + rs.getInt(1) + "'>Edit</a></td>");
+                out.println("<td><a href='deleteUrl?id=" + rs.getInt(1) + "'>Delete</a></td>");
+                out.println("</tr>");
+          }
             out.println("</table>");
 
         }catch (SQLException e){
