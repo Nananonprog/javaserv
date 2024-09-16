@@ -7,12 +7,6 @@
 </head>
 <body>
 
-<%
-    for (int i = 2; i < 10 ; i++) {
-        out.println("<p>" + i + "<sup>2</sup> = " + new Calculate().square(i) + "</p>" );
-
-    }
-%>
 
 
 </body>
