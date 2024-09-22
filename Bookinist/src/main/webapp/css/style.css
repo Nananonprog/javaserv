@@ -1,0 +1,187 @@
+.main{
+    background: #b8b800;
+}
+
+.wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+
+
+    list-style: none;
+}
+
+.logo{
+margin-right: 50%;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #fff;
+
+
+}
+
+.menu a:hover{
+    color: #525200;
+}
+.carousel-item{
+    height: 650px;
+
+}
+.d-block{
+   background-size: cover;
+}
+
+.advantages{
+    margin: 60px 0;
+
+}
+
+.advantages__block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.advantages__element-right{
+    flex-basis: 30%;
+}
+.advantages__element-right img{
+    width: 100%;
+    box-shadow: 0 0 12px 2px #cc8500;
+}
+
+.advantages__element-left{
+flex-basis: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.advantages__element-left div{
+    flex-basis: 44%;
+    padding: 30px 20px 20px;
+    box-shadow: 0 0 12px 2px #cc8500;
+    margin: 20px;
+
+}
+
+h2{
+    text-align: center;
+    padding-bottom: 40px;
+    font-weight: bold;
+    padding-top: 40px;
+}
+
+.team{
+    padding: 60px 0;
+    border-top: 1px solid silver;
+
+}
+
+.team__block{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.team__element{
+    margin: 10px;
+    flex-basis: 25%;
+    box-shadow: 0 0 6px 2px #cc8500 ;
+    text-align: center;
+
+}
+
+.team__element img{
+    width: 100%;
+
+}
+
+.team__element h3, .team__element p{
+    padding: 20px;
+}
+
+
+footer{
+    background: #b8b800;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 30px 0 10px;
+}
+
+.height{
+    min-height: calc(100% - 64px - 80px - 70px);
+}
+
+.form{
+    width: 600px;
+    margin: 70px auto;
+}
+
+.button{
+    background: #ffe07a !important;
+    margin-top: 20px;
+    width: 100%;
+
+}
+
+.center{
+    text-align: center;
+}
+
+/*admin*/
+
+.menu button{
+    background: #4d4d00;
+    border: #4d4d00;
+
+}
+
+
+
+.menu .dropdown-menu a{
+    color: #000;
+    background: white;
+}
+
+
+.admin{
+    padding: 60px 0;
+
+
+}
+
+.admin__block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.admin__element{
+    flex-basis: 25%;
+    box-shadow: 0 0 6px 2px #cc8500;
+    padding: 30px;
+}
+
+.admin__element img{
+    width: 100%;
+}
+
+.admin__element h3, .admin__element p{
+    text-align: center;
+}
+
+.admin__element p{
+    font-size: 24px ;
+}
