@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Worker Login Page</title>
@@ -17,6 +18,10 @@
 <div class="height">
     <section class="form">
         <h2>Авторизация сотрудника</h2>
+        <c:if test="${not empty errorMsg}">
+            <p class="center text-danger">${errorMsg}</p>
+            <c:remove var="errorMsg" scope="session"/>
+        </c:if>
         <form action="bukLogin" method="post">
             <div>
                 <label for="email-address">Email:</label>

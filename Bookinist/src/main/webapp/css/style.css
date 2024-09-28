@@ -79,7 +79,7 @@ h2{
     text-align: center;
     padding-bottom: 40px;
     font-weight: bold;
-    padding-top: 40px;
+    
 }
 
 .team{
@@ -184,4 +184,31 @@ footer{
 
 .admin__element p{
     font-size: 24px ;
+}
+
+.btn-bukinist{
+    position: absolute;
+    bottom: 20px;
+    background: orange !important;
+    color: black;
+
+}
+
+.bukinist__block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bukinist__element{
+    flex-basis: 25%;
+    box-shadow: 0 0 6px orange;
+    padding: 60px 60px 50px;
+    margin: 30px;
+    text-align: center;
+}
+
+.bukinist__element h4{
+    color: #cc8500;
+    
 }
