@@ -22,6 +22,10 @@
             <p class="center text-danger">${errorMsg}</p>
             <c:remove var="errorMsg" scope="session"/>
         </c:if>
+        <c:if test="${not empty succMsg}">
+            <p class="center text-success">${succMsg}</p>
+            <c:remove var="succMsg" scope="session"/>
+        </c:if>
         <form action="bukLogin" method="post">
             <div>
                 <label for="email-address">Email:</label>

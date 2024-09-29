@@ -4,7 +4,7 @@
     <div class="wrap">
         <ul class="menu">
             <li class="logo"><a href="index.jsp">Главная</a></li>
-            <li><a href="reader.jsp">Читатель</a></li>
+            <li><a href="patient.jsp">Читатель</a></li>
             <li>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

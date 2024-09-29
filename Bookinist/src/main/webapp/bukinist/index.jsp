@@ -14,6 +14,10 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
+
+<c:if test="${empty bukObj}">
+    <c:redirect url="../buk_login.jsp"></c:redirect>
+</c:if>
 <section class="bukinist">
     <div class="wrap">
         <h2>Панель букиниста</h2>
