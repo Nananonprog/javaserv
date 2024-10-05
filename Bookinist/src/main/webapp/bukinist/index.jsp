@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.entity.Bukinist" %>
+<%@ page import="com.dao.BukinistDao" %>
+<%@ page import="com.db.DBConnect" %><%--
   Created by IntelliJ IDEA.
   User: Анастасия
   Date: 28.09.2024
@@ -21,14 +23,18 @@
 <section class="bukinist">
     <div class="wrap">
         <h2>Панель букиниста</h2>
+        <%
+            Bukinist b = (Bukinist) session.getAttribute("bukObj");
+            BukinistDao dao = new BukinistDao(DBConnect.getConn());
+        %>
         <div class="bukinist__block">
             <div class="bukinist__element">
                 <h5>Сотрудник</h5>
-                <h4>5</h4>
+                <h4><%= dao.countBukinists()%></h4>
             </div>
             <div class="bukinist__element">
                 <h5>Запись</h5>
-                <h4>12</h4>
+                <h4><%=dao.countAppointmentBukinistId(b.getId())%></h4>
             </div>
         </div>
     </div>

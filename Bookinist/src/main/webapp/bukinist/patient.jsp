@@ -55,7 +55,21 @@
                 <td><%=app.getLect()%></td>
                 <td><%=app.getStatus()%></td>
                 <td>
+                    <%
+                        if("В ожидании".equals(app.getStatus())){
+                            %>
                     <a href="comment.jsp?id=<%=app.getId() %>" class="btn btn-sm btn-info">Комментарий</a>
+
+                    <%
+                        }else{
+
+
+                    %>
+                    <a href="#" class="btn btn-sm btn-info disabled">Комментарий</a>
+                    <%
+                        }
+                    %>
+
                 </td>
             </tr>
             <%

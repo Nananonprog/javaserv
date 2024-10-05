@@ -212,3 +212,10 @@ footer{
     color: #cc8500;
     
 }
+
+.but{
+    margin: 20px 0;
+    width: 100%;
+    background: orange !important;
+    padding: 10px;
+}

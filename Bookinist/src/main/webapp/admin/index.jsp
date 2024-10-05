@@ -1,3 +1,5 @@
+<%@ page import="com.dao.BukinistDao" %>
+<%@ page import="com.db.DBConnect" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -30,18 +32,26 @@
             <p class="center text-success fs-3">${succMsg}</p>
             <c:remove var="succMsg" scope="session" />
         </c:if>
+
+        <%
+            BukinistDao dao = new BukinistDao(DBConnect.getConn());
+
+        %>
         <div class="admin__block">
             <div class="admin__element">
                 <img src="../img/book.png" alt="">
-                <p>Лекции</p>
+                <h3>Записи</h3>
+                <p><%=dao.countAppointment()%></p>
             </div>
             <div class="admin__element">
                 <img src="../img/reading.png" alt="">
-                <p>Читатели</p>
+                <h3>Читатели</h3>
+                <p><%=dao.countReader()%></p>
             </div>
             <div class="admin__element" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="../img/w_1.png" alt="">
-                <p>Сотрудники</p>
+                <h3>Сотрудники</h3>
+                <p><%=dao.countBukinists()%></p>
             </div>
         </div>
     </div>
@@ -70,7 +80,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>

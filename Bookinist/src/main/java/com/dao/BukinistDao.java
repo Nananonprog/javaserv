@@ -68,9 +68,8 @@ public class BukinistDao {
 
         return bukinists;
     }
-    public Bukinist getDoctorsById(int id) {
-
-
+    public Bukinist getBukinistsById(int id) {
+        
         Bukinist bukinist = null;
 
         try {
@@ -164,6 +163,133 @@ public class BukinistDao {
         }
         return bukinist;
     }
+
+
+
+    public int countBukinists(){
+        int i = 0;
+        try{
+            String sql = "SELECT * FROM bukinist";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                i++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public int countAppointment(){
+        int i = 0;
+        try{
+            String sql = "SELECT * FROM appointment";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                i++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public int countReader(){
+        int i = 0;
+        try{
+            String sql = "SELECT * FROM reader_dtls";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                i++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public int countAppointmentBukinistId(int bid){
+        int i = 0;
+        try{
+            String sql = "SELECT * FROM appointment WHERE bukinist_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                i++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public boolean checkOldPassword(int readerId, String oldPassword) {
+        boolean flag = false;
+
+
+        try {
+            String sql = "SELECT * FROM bukinist WHERE id=? and password=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,readerId);
+            ps.setString(2,oldPassword);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                flag = true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
+    public boolean changePassword(int readerId, String newPassword) {
+        boolean flag = false;
+
+        try {
+            String sql = "update bukinist set password=? where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,newPassword);
+            ps.setInt(2,readerId);
+            int row = ps.executeUpdate();
+            if(row == 1) {
+                flag = true;
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public boolean editBukinistProfile(Bukinist bukinist) {
+        boolean flag = false;
+        try {
+            String sql = "UPDATE bukinist SET full_name=?, dob=?, qualification=?, specialist=?, email=?, mobno=? WHERE id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, bukinist.getFullName());
+            ps.setString(2, bukinist.getDob());
+            ps.setString(3, bukinist.getQualification());
+            ps.setString(4, bukinist.getSpecialist());
+            ps.setString(5, bukinist.getEmail());
+            ps.setString(6, bukinist.getMobno());
+            ps.setInt(7, bukinist.getId());
+
+            int row = ps.executeUpdate();
+            System.out.println("Hello " + row );
+            if(row == 1) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
 
     }
 

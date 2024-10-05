@@ -34,6 +34,16 @@ public class Bukinist {
         this.password = password;
     }
 
+    public Bukinist(int id, String fullName, String dob, String qualification, String specialist, String email, String mobno) {
+        this.id = id;
+        this.fullName = fullName;
+        this.dob = dob;
+        this.qualification = qualification;
+        this.specialist = specialist;
+        this.email = email;
+        this.mobno = mobno;
+    }
+
     public int getId() {
         return id;
     }

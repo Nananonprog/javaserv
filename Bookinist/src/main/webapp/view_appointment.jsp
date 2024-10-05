@@ -13,6 +13,71 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>Title</title>--%>
+<%--    <jsp:include page="component/allcss.jsp"/>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<jsp:include page="component/navbar.jsp"/>--%>
+
+<%--<c:if test="${empty readerObj}">--%>
+<%--    <c:redirect url="reader_login.jsp"></c:redirect>--%>
+<%--</c:if>--%>
+<%--<div class="appointment">--%>
+<%--    <div class="wrap">--%>
+<%--        <h2>Просмотр записи</h2>--%>
+
+<%--        <table class="table">--%>
+<%--            <tr>--%>
+<%--                <th scope="col">ФИО</th>--%>
+<%--                <th scope="col">Пол</th>--%>
+<%--                <th scope="col">Возраст</th>--%>
+<%--                <th scope="col">Дата записи</th>--%>
+<%--                <th scope="col">Причина записи</th>--%>
+<%--                <th scope="col">Имя специалиста</th>--%>
+<%--                <th scope="col">Статус</th>--%>
+<%--            </tr>--%>
+<%--            <%--%>
+<%--                Reader reader = (Reader) session.getAttribute("readerObj");--%>
+<%--                AppointmentDAO dao = new AppointmentDAO(DBConnect.getConn());--%>
+<%--                BukinistDao dao2 = new BukinistDao(DBConnect.getConn());--%>
+<%--                List<Appointment> list = dao.getAllAppointmentsByLoginUser(reader.getId());--%>
+<%--                for(Appointment appointment : list) {--%>
+<%--                    Bukinist b = dao2.getBukinistsById(appointment.getId()); %>--%>
+
+<%--            <tr>--%>
+<%--                <td><%=appointment.getFullName()%></td>--%>
+<%--                <td><%=appointment.getGender()%></td>--%>
+<%--                <td><%=appointment.getAge()%></td>--%>
+<%--                <td><%=appointment.getAppointDate()%></td>--%>
+<%--                <td><%=appointment.getLect()%></td>--%>
+<%--                <td><%=b.getFullName()%></td>--%>
+<%--                <td>--%>
+<%--                    <%--%>
+<%--                        if("В ожидании".equals(appointment.getStatus())){ %>--%>
+<%--                    <a href="#" class="btn btn-info">В ожидании</a>--%>
+<%--                    <%--%>
+<%--                        }else { %>--%>
+<%--                        <%= appointment.getStatus() %>--%>
+<%--                    <%--%>
+<%--                        }--%>
+<%--                    %>--%>
+<%--                </td>--%>
+<%--            </tr>--%>
+<%--            <%--%>
+<%--                }--%>
+<%--            %>--%>
+<%--        </table>--%>
+
+<%--    </div>--%>
+<%--</div>--%>
+
+<%--</body>--%>
+<%--</html>--%>
+
 <html>
 <head>
     <title>Title</title>
@@ -20,54 +85,55 @@
 </head>
 <body>
 <jsp:include page="component/navbar.jsp"/>
+<c:if test="${empty readerObj}">
+    <c:redirect url="reader_login.jsp"></c:redirect>
+</c:if>
 <div class="appointment">
     <div class="wrap">
-        <h2>Просмотр записи</h2>
+        <h2>Просмотр назначения</h2>
 
         <table class="table">
             <tr>
                 <th scope="col">ФИО</th>
                 <th scope="col">Пол</th>
                 <th scope="col">Возраст</th>
-                <th scope="col">Дата записи</th>
+                <th scope="col">Дата назначения</th>
                 <th scope="col">Причина записи</th>
-                <th scope="col">Имя специалиста</th>
+                <th scope="col">Имя врача</th>
                 <th scope="col">Статус</th>
             </tr>
             <%
-                Reader reader = (Reader) session.getAttribute("readerObj");
+                Reader user = (Reader) session.getAttribute("readerObj");
                 AppointmentDAO dao = new AppointmentDAO(DBConnect.getConn());
                 BukinistDao dao2 = new BukinistDao(DBConnect.getConn());
-                List<Appointment> list = dao.getAllAppointmentsByLoginUser(reader.getId());
-                for(Appointment appointment : list) {
-                    Bukinist b = dao2.getDoctorsById(appointment.getId()); %>
-
+                List<Appointment> list = dao.getAllAppointmentsByLoginUser(user.getId());
+                for (Appointment appointment : list) {
+                    Bukinist b = dao2.getBukinistsById(appointment.getBukinistId());
+            %>
             <tr>
-                <td><%=appointment.getFullName()%></td>
-                <td><%=appointment.getGender()%></td>
-                <td><%=appointment.getAge()%></td>
-                <td><%=appointment.getAppointDate()%></td>
-                <td><%=appointment.getLect()%></td>
-                <td><%=b.getFullName()%></td>
+                <td><%= appointment.getFullName() %></td>
+                <td><%= appointment.getGender() %></td>
+                <td><%= appointment.getAge() %></td>
+                <td><%= appointment.getAppointDate() %></td>
+                <td><%= appointment.getLect() %></td>
+                <td><%= b.getFullName() %></td>
                 <td>
-                    <%
-                        if("В ожидании".equals(appointment.getStatus())){ %>
+                    <% if ("В ожидании".equals(appointment.getStatus())) {
+                    %>
                     <a href="#" class="btn btn-info">В ожидании</a>
                     <%
-                        }else { %>
-                        <%= appointment.getStatus() %>
-                    <%
-                        }
-                    %>
+                    } else {%>
+                    <%= appointment.getStatus() %>
+                    <% }%>
+
                 </td>
             </tr>
             <%
                 }
             %>
-        </table>
 
+        </table>
     </div>
 </div>
-
 </body>
 </html>

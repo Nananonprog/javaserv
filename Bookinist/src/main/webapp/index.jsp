@@ -10,6 +10,7 @@
 <body>
 <jsp:include page="component/navbar.jsp"/>
 
+<%Connection conn = DBConnect.getConn(); %>
 
 <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
