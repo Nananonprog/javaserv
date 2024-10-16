@@ -1,0 +1,29 @@
+.main{
+    background: #364F6B;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+/*.logo{*/
+/*    margin-right: 50%;*/
+/*}*/
+
+.menu a{
+    text-decoration: none;
+    color: #FFF;
+    background: #364F6B;
+}
+
+.menu a:hover{
+    color: #FC5185;
+}
+
