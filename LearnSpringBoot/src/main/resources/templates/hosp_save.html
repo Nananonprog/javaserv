@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Добавление врача</h1>
+    <div>
+        <p>ФИО: <strong th:text="${doc.fio}"></strong></p>
+        <p>Должность <strong th:text="${doc.spec}"></strong></p>
+        <p>Эл.почта: <strong th:text="${doc.email}"></strong></p>
+        <p>Номер телефона: <strong th:text="${doc.phone}"></strong></p>
+    </div>
+</div>
+
+</body>
+</html>

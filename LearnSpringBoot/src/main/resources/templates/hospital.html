@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>ФИО</td>
+        <td>Статус</td>
+        <td>Эл.почта</td>
+        <td>Номер телефона</td>
+        <td>Действие</td>
+    </tr>
+    <tr th:each="m, m_id : ${med}">
+        <td th:text="${m_id.count}" ></td>
+        <td th:text="${m.fio}" ></td>
+        <td th:text="${m.spec}"></td>
+        <td th:text="${m.email}"></td>
+        <td th:text="${m.phone}"></td>
+        <td>
+            <a th:href="@{/hosp_reg}" th:if="${m.spec} == 'Врач'">Добавить</a>
+            <a th:href="@{/pat}" th:unless="${m.spec} == 'Врач'">Диагноз</a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

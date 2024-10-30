@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Запись</h1>
+<form th:action="@{/pat/pat_save}" method="post" th:object="${newU}">
+    <p>ФИО: <input type="text" th:field="*{name}"></p>
+    <p>Возраст: <input type="text" th:field="*{age}"></p>
+    <p>Эл.почта: <input type="email" th:field="*{email}"></p>
+    <p>Диагноз: <textarea cols="25" rows="5" th:field="*{diagnosis}"></textarea>
+    </p>
+    <p>Номер телефона: <input type="text" th:field="*{phone}"></p>
+    <p>Дата записи: <input type="text" th:field="*{appointment}"></p>
+
+    <p><button>Записаться</button></p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Добавление врача</h1>
+    <form th:action="@{/hosp_reg/hosp_save}" method="post" th:object="${doc}">
+        <p>ФИО: <input type="text" th:field="*{fio}"></p>
+        <p>Должность: <input type="text" th:field="*{spec}"></p>
+        <p>Эл.почта: <input type="email" th:field="*{email}"></p>
+        <p>Номер телефона: <input type="text" th:field="*{phone}"></p>
+
+        <p><button>Добавить</button></p>
+    </form>
+</div>
+</body>
+</html>
