@@ -1,0 +1,18 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">-->
+
+
+<!--&lt;!&ndash;    <bean id="alien" class="org.spring_telusko.Alien">&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg value="12"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;        <property name="laptop" ref="laptop"></property>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <bean id="laptop" class="org.spring_telusko.Laptop"></bean>&ndash;&gt;-->
+<!--<bean id = "dev" class="org.spring_telusko.Dev" autowire="byType">-->
+<!--&lt;!&ndash;    <property name="comp" ref="desk1"/>&ndash;&gt;-->
+<!--</bean>-->
+<!--    <bean id="comp" class="org.spring_telusko.Laptop"></bean>-->
+<!--    <bean id="comp1" class="org.spring_telusko.Desktop"></bean>-->
+<!--</beans>-->

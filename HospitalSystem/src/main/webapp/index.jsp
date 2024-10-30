@@ -2,14 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>JSP - Hello World</title>
     <jsp:include page="component/allcss.jsp" />
 </head>
 <body>
 <jsp:include page="component/navbar.jsp" />
-
-<h1>Hello World!</h1>
 
 <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
@@ -36,8 +33,9 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div>
 
-    <section class="advantages">
+<section class="advantages">
     <div class="wrap">
         <h2>Медицинский центр с высокоточным оборудованием</h2>
         <div class="advantages__block">
@@ -51,21 +49,47 @@
                     <p>Собственная лаборатория выполнит анализы пока вы будете на приеме и УЗИ. Комплекс обследований всего за 2 часа. Доплата за срочность всего 500 ₽</p>
                 </div>
                 <div>
-                    <h4>Анализы за 3 часа</h4>
-                    <p>Собственная лаборатория выполнит анализы пока вы будете на приеме и УЗИ. Комплекс обследований всего за 2 часа. Доплата за срочность всего 500 ₽</p>
+                    <h4>Комплексные обследования</h4>
+                    <p>Комплексные обследования в сфере гинекологии, урологии, кардиологии, аллергологии, неврологии и других. Более 30 видов УЗИ и 1000 исследований</p>
                 </div>
                 <div>
-                    <h4>Анализы за 3 часа</h4>
-                    <p>Собственная лаборатория выполнит анализы пока вы будете на приеме и УЗИ. Комплекс обследований всего за 2 часа. Доплата за срочность всего 500 ₽</p>
+                    <h4>Детальное узи</h4>
+                    <p>Расширенный угол обзора и высокая детализация изображения позволяют увидеть даже незначительные изменения и сделать полное описание</p>
                 </div>
-
             </div>
             <div class="advantages__element-right">
                 <img src="img/advantages.jpg" alt="">
             </div>
         </div>
     </div>
+</section>
+    <section class="team">
+        <div class="wrap">
+            <h2>Прием ведут хорошие врачи</h2>
+            <div class="team__block">
+                <div class="team__element">
+                    <img src="img/doct_1.JPG" alt="">
+                    <h3>Плотникова Виктория Викторовна</h3>
+                    <p>Терапевт</p>
+                </div>
+                <div class="team__element">
+                    <img src="img/doct_2.JPG" alt="">
+                    <h3>Забайкалова Виктория Евгеньевна</h3>
+                    <p>Невролог</p>
+                </div>
+                <div class="team__element">
+                    <img src="img/doct_3.JPG" alt="">
+                    <h3>Сергеева Виктория Викторовна</h3>
+                    <p>Врач УЗД</p>
+                </div>
+                <div class="team__element">
+                    <img src="img/doct_4.JPG" alt="">
+                    <h3>Мельнийчук Ирина Сергеевна</h3>
+                    <p>Кардиолог</p>
+                </div>
+            </div>
+        </div>
     </section>
-</div>
+<jsp:include page="component/footer.jsp"/>
 </body>
 </html>
