@@ -36,7 +36,7 @@
             <img src="/img/robot.png" alt="">
             <h3>Основы Python</h3>
             <p>Познай искусство программирования на базе "змеиного языка"</p>
-            <a href="#" class="btn">Клик</a>
+            <a href="chapter_two.jsp" class="btn">Клик</a>
         </div>
         <div class="box">
             <img src="/img/robot.png" alt="">

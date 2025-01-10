@@ -2,14 +2,21 @@ package com.entity;
 
 public class Teacher {
     private int t_id;
-    private String name;
+    private String full_name;
     private String email;
     private String password;
 
     public Teacher() {}
 
-    public Teacher(String name, String email, String password) {
-        this.name = name;
+    public Teacher(int t_id, String full_name, String email, String password) {
+        this.t_id = t_id;
+        this.full_name = full_name;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Teacher(String full_name, String email, String password) {
+        this.full_name = full_name;
         this.email = email;
         this.password = password;
     }
@@ -23,11 +30,11 @@ public class Teacher {
     }
 
     public String getName() {
-        return name;
+        return full_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getEmail() {

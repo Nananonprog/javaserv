@@ -6,7 +6,7 @@
         <ul class="menu">
             <li class="logo"><a href="index.jsp">Главная</a></li>
             <c:if test="${empty studObj}">
-            <li><a href="#">О проекте</a></li>
+            <li><a href="/about_us.jsp">О проекте</a></li>
             <li><a href="/teacher_login.jsp">Преподаватель</a></li>
             <li><a href="/student_login.jsp">Ученик</a></li>
             <li>

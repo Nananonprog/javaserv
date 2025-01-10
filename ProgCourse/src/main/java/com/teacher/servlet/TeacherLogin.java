@@ -26,7 +26,7 @@ public class TeacherLogin extends HttpServlet {
 
         if(teacher != null) {
             session.setAttribute("teachObj", teacher);
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("teacher/index.jsp");
         }else{
             session.setAttribute("errorMsg", "Некорректный email или пароль");
             resp.sendRedirect("teacher_login.jsp");
